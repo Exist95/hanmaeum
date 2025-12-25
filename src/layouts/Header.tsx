@@ -12,8 +12,8 @@ import { cn } from '@/lib/utils';
 import { Github } from 'lucide-react';
 
 const navList = [
-  { name: 'D5BL5G', href: '/blog' },
-  { name: 'About', href: '/about' },
+  { name: '홈', href: '/blog' },
+  { name: '연혁', href: '/about' },
 ];
 
 const localePathList = ['/about'];

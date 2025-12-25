@@ -1,12 +1,12 @@
-import Link from 'next/link';
+// import Link from 'next/link';
 
-import IconGithub from '@/components/icon/Github';
-import IconLinkedin from '@/components/icon/LinkedIn';
+// import IconGithub from '@/components/icon/Github';
+// import IconLinkedin from '@/components/icon/LinkedIn';
 
 export const Footer = () => {
   return (
     <footer className='mb-16 mt-20 flex flex-col items-center justify-center gap-4 text-center print:hidden'>
-      <div className='flex justify-center gap-4'>
+      {/* <div className='flex justify-center gap-4'>
         <Link href='https://github.com/d5br5' target='_blank'>
           <IconGithub
             className='fill-foreground transition hover:fill-pink-600'
@@ -21,9 +21,9 @@ export const Footer = () => {
             width={30}
           />
         </Link>
-      </div>
+      </div> */}
       <div>
-        © 2024. <span className='font-semibold'>Doh Kim</span> all rights reserved.
+        © 2021. <span className='font-semibold'>한마음재가복지센터</span> all rights reserved.
       </div>
     </footer>
   );

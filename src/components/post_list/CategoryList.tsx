@@ -42,13 +42,13 @@ const CategoryList = ({
           <CategoryButton
             href='/blog'
             isCurrent={currentCategory === 'all'}
-            displayName='All'
+            displayName='전체'
             count={allPostCount}
           />
           <CategoryButton
             href='/blog/hot'
             isCurrent={currentCategory === 'hot'}
-            displayName='🔥추천'
+            displayName='이슈'
             count={hotPostCount}
           />
           {categoryList.map((cg) => (
