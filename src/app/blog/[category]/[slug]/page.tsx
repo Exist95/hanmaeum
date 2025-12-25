@@ -19,7 +19,7 @@ export const dynamicParams = false;
 export async function generateMetadata({ params: { category, slug } }: Props): Promise<Metadata> {
   const post = await getPostDetail(category, slug);
 
-  const title = `${post.title} | D5BL5G`;
+  const title = `${post.title} | 홈페이지`;
   const imageURL = `${baseDomain}${post.thumbnail}`;
 
   return {
@@ -30,7 +30,6 @@ export async function generateMetadata({ params: { category, slug } }: Props): P
       title,
       description: post.desc,
       type: 'article',
-      publishedTime: post.date.toISOString(),
       url: `${baseDomain}${post.url}`,
       images: [imageURL],
     },

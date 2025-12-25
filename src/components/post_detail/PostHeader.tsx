@@ -24,10 +24,6 @@ export const PostHeader = ({ post }: Props) => {
           <CalendarDays className='w-3.5' />
           <span>{post.dateString}</span>
         </div>
-        <div className='flex items-center gap-1'>
-          <Clock3 className='w-3.5' />
-          <span>{post.readingMinutes}분</span>
-        </div>
       </div>
       <hr className='mt-5' />
     </header>
