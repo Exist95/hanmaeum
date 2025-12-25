@@ -83,7 +83,7 @@ export const getSortedPostList = async (category?: string) => {
 
 export const getSitemapPostList = async () => {
   const postList = await getPostList();
-  const baseUrl = 'https://www.d5br5.dev';
+  const baseUrl = 'https://hanma-eum.vercel.app';
   const sitemapPostList = postList.map(({ url }) => ({
     lastModified: new Date(),
     url: `${baseUrl}${url}`,
