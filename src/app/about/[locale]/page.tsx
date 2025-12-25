@@ -15,6 +15,7 @@ import { DATAS, Locale } from '@/config/types';
 import { getCareerProjectList, getSortedProjectList } from '@/lib/project';
 import { cn } from '@/lib/utils';
 import { GlobeIcon, MailIcon } from 'lucide-react';
+import Image from 'next/image';
 
 interface Props {
   params: {
@@ -59,13 +60,7 @@ export default async function AboutPage({ params: { locale } }: Props) {
               </a>
             </p>
             <div className='flex justify-center gap-x-2 pt-1 text-sm text-muted-foreground sm:justify-start print:hidden'>
-              {RESUME_DATA.contact.social.map((social) => (
-                <Button key={social.name} className='size-8' variant='outline' size='icon' asChild>
-                  <a href={social.url} target='_blank'>
-                    <social.icon className='size-4' />
-                  </a>
-                </Button>
-              ))}
+
               {RESUME_DATA.contact.email && (
                 <D.Dialog>
                   <D.DialogTrigger>
@@ -105,12 +100,16 @@ export default async function AboutPage({ params: { locale } }: Props) {
           </div>
 
           <Avatar className='size-28'>
-            <AvatarImage alt={RESUME_DATA.name} src={RESUME_DATA.avatarUrl} />
-            <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback>
+            <Image alt={RESUME_DATA.name} src={RESUME_DATA.avatarUrl} sizes='(max-width: 1000px) 50vw, 450px'
+              fill
+              priority
+              style={{
+                objectFit: 'cover',
+              }} />
           </Avatar>
         </div>
         <Section>
-          <h2 className='text-2xl font-bold'>About</h2>
+          <h2 className='text-2xl font-bold'>소개</h2>
           <p
             className={cn(
               'text-pretty leading-8 text-muted-foreground print:text-[12px]',
@@ -121,7 +120,7 @@ export default async function AboutPage({ params: { locale } }: Props) {
           </p>
         </Section>
         <Section>
-          <h2 className='text-2xl font-bold'>Work Experience</h2>
+          <h2 className='text-2xl font-bold'>연혁</h2>
           <div className='space-y-4'>
             {RESUME_DATA.work.map((work) => (
               <Card key={work.company}>
@@ -133,64 +132,16 @@ export default async function AboutPage({ params: { locale } }: Props) {
                       </a>
                     </h3>
                     <div className='text-sm tabular-nums text-gray-500'>
-                      {work.start} - {work.end ?? ''}
+                      {work.start} ~ {work.end ?? ''}
                     </div>
                   </div>
                 </CardHeader>
                 <CardDescription className='text-pretty text-sm'>
-                  {work.description}
+                  {work?.description}
                 </CardDescription>
-
-                <h4 className='mt-7 font-semibold  leading-none print:text-[12px]'>{work.title}</h4>
-                {work.points && (
-                  <ul className='mt-4 list-disc space-y-2 text-sm'>
-                    {work.points.map((point, index) => 
-                       (
-                        <li key={index} className='ml-5 text-muted-foreground'>
-                          {point}
-                        </li>
-                      )
-                    )}
-                  </ul>
-                )}
               </Card>
             ))}
           </div>
-        </Section>
-        <Section>
-          <h2 className='text-2xl font-bold'>Education</h2>
-          <div className='space-y-3'>
-            {RESUME_DATA.education.map((education) => (
-              <Card key={education.school}>
-                <CardHeader>
-                  <div className='flex flex-col items-start justify-between gap-1 gap-x-2 text-base sm:flex-row sm:items-center'>
-                    <h3 className='text-lg font-semibold leading-none'>{education.school}</h3>
-                    <div className='text-sm tabular-nums text-gray-500'>
-                      {education.start} - {education.end}
-                    </div>
-                  </div>
-                </CardHeader>
-                <CardContent className='mt-2 text-base print:text-[12px]'>
-                  {education.degree}
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </Section>
-        <Section>
-          <h2 className='text-2xl font-bold'>Skills</h2>
-          <div className='flex flex-wrap gap-1'>
-            {RESUME_DATA.skills.map((skill) => (
-              <Badge className='print:text-[10px]' key={skill}>
-                {skill}
-              </Badge>
-            ))}
-          </div>
-        </Section>
-
-        <Section className='print-force-new-page scroll-mb-16'>
-          <h2 className='text-2xl font-bold'>Projects</h2>
-          <ProjectList list={projectList} />
         </Section>
       </Section>
     </main>

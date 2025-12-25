@@ -5,15 +5,13 @@ import { usePathname } from 'next/navigation';
 
 import LanguageSelector from '@/components/about/language-selector';
 import ScrollProgressBar from '@/components/common/ScrollProgressBar';
-import { Button } from '@/components/ui/button';
 import { useSpyElem } from '@/hook/useSpy';
 import ThemeSwitch from '@/layouts/theme/Switch';
 import { cn } from '@/lib/utils';
-import { Github } from 'lucide-react';
 
 const navList = [
   { name: '홈', href: '/blog' },
-  { name: '연혁', href: '/about' },
+  { name: '소개', href: '/about' },
 ];
 
 const localePathList = ['/about'];
@@ -51,11 +49,6 @@ export const Header = () => {
 
         <div className='flex gap-3'>
           <ThemeSwitch />
-          <Button asChild variant='ghost' size='icon'>
-            <Link href='https://github.com/d5br5/nextjs-tailwind-blog' target='_blank'>
-              <Github className='size-[1.2rem]' />
-            </Link>
-          </Button>
         </div>
       </div>
       <ScrollProgressBar />
