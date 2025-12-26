@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { CategoryDetail } from '@/config/types';
+import { getCategoryLabel } from '../../../rule';
 
 interface CategoryListProps {
   categoryList: CategoryDetail[];
@@ -48,14 +49,14 @@ const CategoryList = ({
           <CategoryButton
             href='/blog/hot'
             isCurrent={currentCategory === 'hot'}
-            displayName='이슈'
+            displayName='공지사항'
             count={hotPostCount}
           />
           {categoryList.map((cg) => (
             <CategoryButton
               key={cg.dirName}
               href={`/blog/${cg.dirName}`}
-              displayName={cg.publicName}
+              displayName={getCategoryLabel(cg.publicName)}
               isCurrent={currentCategory === cg.dirName}
               count={cg.count}
             />

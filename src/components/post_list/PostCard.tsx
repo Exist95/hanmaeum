@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Post } from '@/config/types';
 import { cn } from '@/lib/utils';
 import { CalendarDays, Clock3 } from 'lucide-react';
+import { getCategoryLabel } from '../../../rule';
 
 interface Props {
   post: Post;
@@ -44,7 +45,7 @@ const PostCard = ({ post }: Props) => {
               </div>
             )}
             <div className='text-xs font-medium text-pink-600 sm:text-sm lg:text-base'>
-              {post.categoryPublicName}
+              {getCategoryLabel(post.categoryPublicName) || '기타'}
             </div>
             <h2 className='my-1 text-sm font-semibold sm:mb-3 sm:text-base sm:font-bold lg:text-lg'>
               {post.title}

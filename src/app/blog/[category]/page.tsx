@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import PostListPage from '@/components/post_list/PostListPage';
 import { baseDomain, blogName, blogThumbnailURL } from '@/config/const';
 import { getCategoryList, getCategoryPublicName, getSortedPostList } from '@/lib/post';
+import { getCategoryLabel } from '../../../../rule';
 
 type Props = {
   params: { category: string };
@@ -18,7 +19,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params: { category } }: Props): Promise<Metadata> {
-  const cg = getCategoryPublicName(category);
+  const cg = getCategoryLabel(getCategoryPublicName(category));
   const title = `${cg} | ${blogName}`;
   const url = `${baseDomain}/${category}`;
 

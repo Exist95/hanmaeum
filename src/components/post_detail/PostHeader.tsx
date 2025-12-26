@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import { Post } from '@/config/types';
 import { CalendarDays, Clock3 } from 'lucide-react';
+import { getCategoryLabel } from '../../../rule';
 
 interface Props {
   post: Post;
@@ -16,7 +17,7 @@ export const PostHeader = ({ post }: Props) => {
           href={`/blog/${post.categoryPath}`}
           className='font-semibold text-pink-600 no-underline underline-offset-4 hover:underline'
         >
-          {post.categoryPublicName}
+          {getCategoryLabel(post.categoryPublicName) || '기타'}
         </Link>
       </div>
       <div className='flex justify-center gap-3 text-sm text-gray-500 dark:text-gray-400'>
