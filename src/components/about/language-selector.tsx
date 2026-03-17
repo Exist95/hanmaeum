@@ -39,11 +39,7 @@ export default function LanguageSelector({ className }: { className?: string }) 
         <GlobeIcon className='size-3.5' />
         <S.SelectValue />
       </S.SelectTrigger>
-      <S.SelectContent align='center'>
-        <S.SelectItem className='flex justify-between' disabled={isKo} value='ko'>
-          한국어
-        </S.SelectItem>
-      </S.SelectContent>
+
     </S.Select>
   );
 }
