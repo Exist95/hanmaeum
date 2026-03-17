@@ -43,9 +43,6 @@ export default function LanguageSelector({ className }: { className?: string }) 
         <S.SelectItem className='flex justify-between' disabled={isKo} value='ko'>
           한국어
         </S.SelectItem>
-        <S.SelectItem className='flex justify-between' disabled={isEn} value='en'>
-          English
-        </S.SelectItem>
       </S.SelectContent>
     </S.Select>
   );
