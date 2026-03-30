@@ -23,7 +23,7 @@ const PostCard = ({ post }: Props) => {
         <div className='relative aspect-video w-1/3 rounded-t-md sm:border-b max-[550px]:hidden sm:w-full'>
           {post.isHot && (
             <div className='absolute left-1 top-1 z-10 rounded-sm bg-red-500 px-2 py-1 text-xs font-medium text-stone-50 max-sm:hidden'>
-              변경
+              공지
             </div>
           )}
           <Image
@@ -41,7 +41,7 @@ const PostCard = ({ post }: Props) => {
           <div>
             {post.isHot && (
               <div className='absolute right-1 top-1 z-20 rounded-sm bg-red-500 px-1.5 py-0.5 text-xs font-medium text-stone-50 sm:hidden'>
-                변경
+                공지
               </div>
             )}
             <div className='text-xs font-medium text-pink-600 sm:text-sm lg:text-base'>

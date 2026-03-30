@@ -15,12 +15,11 @@ export const Curation = ({ postList }: { postList: Post[] }) => {
       <section className="flex-1 w-full flex flex-col min-[980px]:min-w-[520px]">
         <h2 className='text-lg sm:text-2xl font-bold mb-3'>최신 게시물</h2>
         <div>
-
           <PostCard post={firstPost} />
         </div>
       </section>
       <section className='flex-1 w-full flex flex-col'>
-        <h2 className='text-lg sm:text-2xl font-bold mb-3'>위원변경</h2>
+        <h2 className='text-lg sm:text-2xl font-bold mb-3'>공지사항</h2>
         <div className='flex flex-col gap-3 flex-1 '>
           {hotPostShowList.map((post) => (
             <MiniPostCard key={post.slug} post={post} />
